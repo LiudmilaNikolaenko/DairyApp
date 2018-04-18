@@ -14,17 +14,21 @@ export default (itemsState = defaultItems, action) => {
 
   switch (type) {
     case ADD_ITEM:
-      return itemsState.set(randomId, 
-        new ItemRecord({id: randomId, name: payload.name, comments: []}));
+      return itemsState
+        .set(randomId, 
+          new ItemRecord({id: randomId, name: payload.name, comments: []}));
         
     case DELETE_ITEM:
-      return itemsState.delete(payload.id);
+      return itemsState
+        .delete(payload.id);
 
     case ADD_COMMENT:
-      return itemsState.updateIn([payload.itemId, 'comments'],
-        comments => comments.concat(randomId)
-      );
+      return itemsState
+        .updateIn([payload.itemId, 'comments'],
+          comments => comments.concat(randomId));
+
+    default:
+      return itemsState;
   } 
 
-  return itemsState;
 }

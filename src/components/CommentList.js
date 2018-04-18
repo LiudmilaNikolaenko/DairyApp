@@ -22,9 +22,7 @@ class CommentList extends React.Component {
   }
 }
 
-export default connect((state) => {
-  return {
-    comments: state.comments,
-    activeItemComments: state.activeitem.comments
-  }
-})(CommentList);
+export default connect((state) => ({
+  comments: state.comments,
+  activeItemComments: state.activeitem.comments
+}))(CommentList);

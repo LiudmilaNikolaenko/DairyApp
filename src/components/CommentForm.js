@@ -50,8 +50,6 @@ class CommentForm extends React.Component {
   };
 }
 
-export default connect((state) => {
-  return {
-    activeItemId: state.activeitem.id
-  }
-}, {addComment})(CommentForm);
+export default connect((state) => ({
+  activeItemId: state.activeitem.id
+}), {addComment})(CommentForm);

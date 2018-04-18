@@ -44,8 +44,6 @@ class Item extends React.Component {
   }
 }
 
-export default connect((state) => {
-  return {
-    activeItemId: state.activeitem.id
-  }
-}, {chooseActiveItem})(Item);
+export default connect((state) => ({
+  activeItemId: state.activeitem.id
+}), {chooseActiveItem})(Item);

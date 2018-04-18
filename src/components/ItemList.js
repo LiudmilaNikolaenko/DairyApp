@@ -21,7 +21,7 @@ class ItemList extends React.Component {
     let newActiveItem;
     if (activeItem.id === item.id) {
       newActiveItem = items.length > 1 ? 
-        items[0].id != item.id && items[0] || items[1] :
+        (items[0].id !== item.id && items[0]) || items[1] :
         { id: null, name: '', comments: [] };
     } else {
       newActiveItem = activeItem;
@@ -43,9 +43,7 @@ class ItemList extends React.Component {
   }
 }
 
-export default connect((state) => {
-  return {
-    items: mapToArr(state.items),
-    activeItem: state.activeitem
-  }
-}, {deleteItem})(ItemList);
+export default connect((state) => ({
+  items: mapToArr(state.items),
+  activeItem: state.activeitem
+}), {deleteItem})(ItemList);

@@ -40,7 +40,9 @@ export default (activeItemState = defaultActiveItem, action) => {
     case ADD_COMMENT:
       return activeItemState
         .update('comments', comments => comments.concat(randomId));
+
+    default:
+      return activeItemState;
   }
 
-  return activeItemState;
 }

@@ -22,8 +22,6 @@ class Comments extends React.Component {
   };
 };
 
-export default connect((state) => {
-  return {
-    activeItemName: state.activeitem.name
-  }
-})(Comments);
+export default connect((state) => ({
+  activeItemName: state.activeitem.name
+}))(Comments);

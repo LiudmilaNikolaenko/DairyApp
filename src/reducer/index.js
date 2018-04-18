@@ -3,4 +3,6 @@ import items from './items';
 import activeitem from './activeitem';
 import comments from './comments';
 
-export default combineReducers({ items, activeitem, comments })
+export default combineReducers({ 
+  items, activeitem, comments 
+})

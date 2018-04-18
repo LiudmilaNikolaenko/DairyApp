@@ -13,15 +13,18 @@ export default (commentsState = defaultComments, action) => {
 
   switch (type) {
     case ADD_COMMENT:
-      return commentsState.set(randomId, 
-        new CommentRecord({id: randomId, text: payload.text}));
+      return commentsState
+        .set(randomId, 
+          new CommentRecord({id: randomId, text: payload.text}));
         
     case DELETE_ITEM:
       payload.comments.forEach(commentId => {
-        commentsState.delete(commentId)
+          commentsState.delete(commentId)
       });
+      return commentsState;
+
+    default:
       return commentsState;
   };
 
-  return commentsState;
 };
